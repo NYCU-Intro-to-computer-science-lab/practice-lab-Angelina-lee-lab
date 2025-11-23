@@ -1,21 +1,30 @@
-// p1: Calculator (Function Practice)
 #include <iostream>
 using namespace std;
 
-// TODO: 實作 calculate 函數
-// 參數: opcode (1-4), num1, num2
-// 回傳: 根據 opcode 計算的結果
+// 计算函数
 int calculate(int opcode, int num1, int num2) {
-    // 在此實作你的程式碼
-    return 0;
+    switch(opcode) {
+        case 1:  // 加法
+            return num1 + num2;
+        case 2:  // 减法
+            return num1 - num2;
+        case 3:  // 乘法
+            return num1 * num2;
+        case 4:  // 除法
+            return num1 / num2;
+        default:
+            return 0;  // 理论上不会执行到这里
+    }
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    int opcode, num1, num2;
     
-    // TODO: 讀取輸入並呼叫 calculate 函數
-    // 提示: 使用 while(cin >> opcode >> num1 >> num2) 來讀取到 EOF
+    // 持续读取直到 EOF
+    while (cin >> opcode >> num1 >> num2) {
+        int result = calculate(opcode, num1, num2);
+        cout << result << endl;
+    }
     
     return 0;
 }
